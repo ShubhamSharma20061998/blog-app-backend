@@ -1,20 +1,20 @@
-const mongoose = require('mongoose')
-const { Schema, model } = mongoose 
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 const blogSchema = new Schema({
-    title: String,
-    content: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    status: {
-        type: String,
-        default: 'pending',
-        enum: ['pending', 'published']
-    }
-})
+  title: String,
+  content: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  status: {
+    type: String,
+    default: "pending",
+    enum: ["pending", "published", "reject"],
+  },
+});
 
-const Blog = model('Blog', blogSchema) 
+const Blog = model("Blog", blogSchema);
 
-module.exports = Blog 
+module.exports = Blog;
